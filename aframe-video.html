@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Тосол Синтез | Календарь 2021</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- ! ARFAME 1.0.4. three.js 0.111.3 -->
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@c5eabc1ac708a76a0dbe9538c40ecd290af65714/dist/aframe-master.js"></script>
+
+    <!-- ! ARFAME 0.9.2. three.js 0.111.3 -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script> -->
+
+    <!-- rawgithack development URL -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <!-- <script src="js/aframe-preloader-component.min.js"></script> -->
+
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <body style="margin: 0px; overflow: hidden">
+      <!-- minimal loader shown until image descriptors are loaded -->
+      <!-- <div class="arjs-loader">
+        <div>Минутку, загружаюсь...</div>
+      </div> -->
+
+      <div class="preloader preloader--active">
+        <div class="preloader__content">
+          <p>ЗАГРУЖАЮСЬ...</p>
+        </div>
+        <div class="preloader__logo"><img src="assets/logo.svg" alt="" /></div>
+      </div>
+
+      <a-scene
+        vr-mode-ui="enabled: false;"
+        renderer="logarithmicDepthBuffer: false; "
+        embedded
+        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:414; sourceHeight:736; displayWidth: 414; displayHeight: 736; maxDetectionRate: 90; "
+      >
+        <a-assets>
+          <video
+            src="assets/video.mp4"
+            preload="auto"
+            id="vid"
+            response-type="arraybuffer"
+            loop
+            crossorigin
+            webkit-playsinline
+            autoplay
+            muted
+            playsinline
+            preload="true"
+          ></video>
+        </a-assets>
+
+        <a-nft
+          type="nft"
+          videohandler
+          url="assets/nft/Felix_01_01"
+          smooth="true"
+          smoothCount="10"
+          smoothTolerance="0.01"
+          smoothThreshold="5"
+          preload="true"
+        >
+          <a-video
+            src="#vid"
+            position="0 0 0"
+            width="300"
+            height="424"
+            rotation="-90 0 0"
+            videoelement
+          >
+          </a-video>
+        </a-nft>
+
+        <a-entity camera></a-entity>
+      </a-scene>
+    </body>
+  </body>
+</html>

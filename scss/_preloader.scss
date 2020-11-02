@@ -1,0 +1,56 @@
+.preloader {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity var(--transition);
+
+  &--active {
+    opacity: 1;
+  }
+  &--halfway {
+    opacity: 0.5;
+    transition-duration: 2s;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 2vw 2vw;
+    opacity: 0;
+    transform: translateY(2vw);
+    transition: all var(--transition);
+
+    &--active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__logo {
+    flex: 0 0 auto;
+    width: 20vw;
+    max-width: 200px;
+    margin: 5vw auto 10vw;
+    text-align: center;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

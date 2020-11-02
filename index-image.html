@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+
+    <!-- rawgithack development URL -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+  <body>
+    <body style="margin: 0px; overflow: hidden">
+      <!-- minimal loader shown until image descriptors are loaded -->
+      <div class="arjs-loader">
+        <div>Минутку, загружаюсь...</div>
+      </div>
+      <a-scene
+        vr-mode-ui="enabled: false;"
+        renderer="logarithmicDepthBuffer: true; "
+        embedded
+        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 960; displayHeight: 1280;"
+      >
+        <a-nft
+          type="nft"
+          url="assets/nft/cat-angels"
+          smooth="true"
+          smoothCount="10"
+          smoothTolerance="0.01"
+          smoothThreshold="5"
+        >
+          <a-image
+            width="20"
+            height="20"
+            rotation="90 180 0"
+            src="assets/image.jpg"
+            position="50 -50 0"
+          ></a-image>
+
+          <!-- <a-entity
+            gltf-model="assets/gltf/scene.gltf"
+            scale="10 10 10"
+            position=""
+          >
+          </a-entity> -->
+
+          <!-- <a-entity
+            gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+            scale="5 5 5"
+            position="50 150 -100"
+          >
+          </a-entity> -->
+        </a-nft>
+
+        <a-entity camera></a-entity>
+      </a-scene>
+    </body>
+  </body>
+</html>
